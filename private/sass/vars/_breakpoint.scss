@@ -1,0 +1,27 @@
+////
+/// @group breakpoints
+////
+
+/// convertion de breakpoint px en em
+/// @param {px} width
+/// @example
+///  $b-desk: b-em(1000);
+@function b-em($value-px) {
+  $value-em: $value-px / 16;
+
+  @return $value-em*1em;
+}
+
+/// breakpoint desktop extra-large
+$b-xlarge: b-em(1300);
+
+/// breakpoint desktop
+$b-desk: b-em(1000);
+
+/// breakpoint tablette
+$b-tab: b-em(767) b-em(999);
+
+/// breakpoint mobile
+$b-mob: b-em(0) b-em(767);
+
+$b-tab-desk: b-em(767);

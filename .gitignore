@@ -1,0 +1,11 @@
+/.sass-cache
+/node_modules
+/dist
+/.idea
+/_sources
+.history/
+package-lock.json
+.DS_Store
+private/.DS_Store
+private/img/.DS_Store
+

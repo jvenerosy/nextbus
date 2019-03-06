@@ -1,0 +1,45 @@
+<script>
+    function getCookieID(sName) {
+        var cookContent = document.cookie, cookEnd, i, j;
+        var sName = sName + "=";
+
+        for (i=0, c=cookContent.length; i<c; i++) {
+            j = i + sName.length;
+            if (cookContent.substring(i, j) == sName) {
+                cookEnd = cookContent.indexOf(";", j);
+                if (cookEnd == -1) {
+                    cookEnd = cookContent.length;
+                }
+                return decodeURIComponent(cookContent.substring(j, cookEnd));
+            }
+        }
+        return null;
+    }
+</script>
+
+{% if config.modules.jquery %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endif %}
+{% if config.modules.modernizr %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+{% endif %}
+{% if config.modules.detectizr %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js"></script>
+{% endif %}
+{% if config.modules.waypoints %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+{% endif %}
+{% if config.modules.slick %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+{% endif %}
+{% if config.modules.fancybox %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+{% endif %}
+{% if config.modules.vhFixed %}
+    <script src="https://unpkg.com/vh-check/dist/vh-check.min.js"></script>
+{% endif %}
+{% if config.modules.animate %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+{% endif %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/app.js"></script>

@@ -1,0 +1,16 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ config.operation.titre }}</title>
+
+<meta name="author" content="vente-privee.com" />
+<meta name="description" content="{{ config.operation.description }}" />
+
+<meta property="og:site_name" content="">
+<meta property="og:url" content="{{ config.url.secure ~ config.operation.code }}/{% if isMulti %}index_{{ lang }}.html{% else %}index.html{% endif %}">
+<meta property="og:title" content="{{ config.operation.titre }}">
+<meta property="og:description" content="{{ config.operation.description }}">
+<meta property="og:image" content="img/facebook_{{ lang }}.jpg">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="css/main.css" />

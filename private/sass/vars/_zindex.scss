@@ -1,0 +1,15 @@
+$z : (
+  'base': 1,
+  'middle': 100,
+  'high': 500,
+  'sup': 1500,
+  'top': 9999
+);
+
+@function z($level) {
+  @if not map-has-key($z, $level) {
+    @warn "Le niveau `#{$level}` de z-index n'existe pas. Voir _zindex.scss";
+  }
+
+  @return map-get($z, $level);
+}

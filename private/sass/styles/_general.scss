@@ -1,0 +1,62 @@
+/*SPECIFIC STYLE*/
+
+html,body{
+  /*******NE PAS RETIRER********/
+  max-width: 100vw;
+  /*****************************/
+
+  background: $c-theme;
+  font-family: $t-text;
+  color: $c-complement;
+  text-align: center;
+  overflow: hidden;
+}
+
+[v-cloak] {display: none}
+
+#app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hour {
+  margin-bottom: 20vh;
+
+  &__title {
+    font-size: 3vh;
+    text-transform: uppercase;
+  }
+
+
+  &__parag {
+    font-size: 10vh;
+  }
+}
+
+.next {
+
+  font-size: 2vh;
+
+  &__number {
+    background: gold;
+    display: inline-block;
+    padding: 3vh;
+    font-size: 5vh;
+    border-radius: 2vh;
+    margin: 3vh 0;
+
+    .next__line--12 & {
+      background-color: $c-douze;
+    }
+
+    .next__line--13 & {
+      background-color: $c-treize;
+    }
+  }
+
+  &__hour {
+    font-size: 6vh;
+  }
+}

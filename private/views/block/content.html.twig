@@ -1,0 +1,14 @@
+<div id="app" v-cloak>
+    <div class="hour">
+        <h1 class="hour__title">Heure</h1>
+        <p class="hour__parag">[[ currentHours ]]:[[ currentMinutes ]]:[[ currentSeconds ]]</p>
+    </div>
+
+    <div class="next">
+        <h2 class="next__title">Prochain bus vers la gare dans [[ next ]]</h2>
+        <div class="next__line" :class="'next__line--' + number">
+            <p class="next__number">[[ number ]]</p>
+            <p class="next__hour">[[ hNext ]]:[[mNext]]</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+////
+/// @group Typos
+////
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+
+/// typo de titrage
+$t-title: 'Futura', serif;
+/// typo de texte secondaire
+$t-text: 'Source Sans Pro', sans-serif;
+/// taille par defaut du texte (10px)
+$t-size-base: 62.5%;
+
+$guss-rem-baseline: 16px !default;
+
+@function rem($value, $baseline: $guss-rem-baseline) {
+  @if $value == 0 {
+    @return 0; // 0rem -> 0
+  }
+
+  @if type-of($value) == list {
+    $result: ();
+
+    @each $e in $value {
+      $result: append($result, rem($e, $baseline));
+    }
+
+    @return $result;
+  } @else {
+    @return if(type-of($value) == number and unit($value) == px, $value / $baseline * 1rem, $value);
+  }
+}
+
+@mixin rem($properties, $lheight) {
+  @each $property, $value in $properties {
+    @if (type-of($value) == number and $value != 0) {
+      // Turn unitless values into pixels
+      $value: if(unitless($value), $value * 1px, $value);
+    }
+
+    #{$property}: $value;
+    #{$property}: rem($value);
+  }
+}
+
+// Permet de convertir une taille px => vw
+@function vw($value, $baseline: $guss-rem-baseline) {
+  @if $value == 0 {
+    @return 0; // 0rem -> 0
+  }
+
+  @if type-of($value) == list {
+    $result: ();
+
+    @each $e in $value {
+      $result: append($result, rem($e, $baseline));
+    }
+
+    @return $result;
+  } @else {
+    @return if(type-of($value) == number and unit($value) == px, $value / $baseline * 5vw, $value);
+  }
+}
+
+/// declaration de la taille de typo ET de l'interlignage
+/// @param {absolute} $font-size - Taille de la police
+/// @param {px|em} $line-heigt - valeur de l'interligne
+/// @example
+/// .link {
+///   @include fonts(18, 24px);
+/// }
+/// @example
+/// .link {
+///   @include fonts(12, 1.4em);
+/// }
+@mixin fonts($font-size, $line-height) {
+  @include rem((font-size: $font-size));
+  line-height: $line-height;
+}

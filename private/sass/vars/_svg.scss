@@ -1,0 +1,17 @@
+/// taille des icones
+/// @group dimensions
+$d-size-icon: .95em;
+
+.base-svg {
+  display: none;
+}
+
+.svgIco {
+  width: $d-size-icon;
+  height: $d-size-icon;
+  vertical-align: -.1em;
+
+  use {
+    fill: currentColor;
+  }
+}

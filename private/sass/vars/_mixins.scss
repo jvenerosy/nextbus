@@ -1,0 +1,81 @@
+//EXTENDS
+%container {
+  width: 95%;
+  margin: auto;
+}
+
+%shadow {
+  box-shadow: 0 6px 35px 0 rgba(13, 13, 13, 0.47);
+}
+
+%desktop-only {
+  @include breakpoint($b-mob) {
+    display: none !important;
+  }
+  @include breakpoint($b-tab) {
+    display: none !important;
+  }
+  @include breakpoint($b-desk) {
+    display: block !important;
+  }
+}
+
+.desktop-only {
+  @extend %desktop-only;
+}
+
+%mob-only {
+  @include breakpoint($b-mob) {
+    display: block !important;
+  }
+  @include breakpoint($b-tab-desk) {
+    display: none !important;
+  }
+}
+
+.mob-only {
+  @extend %mob-only;
+}
+
+%no-desktop {
+  @include breakpoint($b-mob) {
+    display: block !important;
+  }
+  @include breakpoint($b-tab) {
+    display: block !important;
+  }
+  @include breakpoint($b-desk) {
+    display: none !important;
+  }
+}
+
+.no-desktop {
+  @extend %no-desktop;
+}
+
+//MIXINS
+@mixin darkenHover($color, $percent: 5%) {
+  &:hover {
+    background: darken($color, $percent);
+    transition: all ease .4s;
+  }
+}
+
+@mixin clearfix() {
+  &::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+@mixin bordered($color1, $color2, $color3, $color4) {
+  border: 2px solid $c-vp;
+  border-top-color: $color1;
+  border-right-color: $color2;
+  border-bottom-color: $color3;
+  border-left-color: $color4;
+}

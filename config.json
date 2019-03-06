@@ -1,0 +1,17 @@
+{
+  "htmlDevPath": "./private/views",
+  "styleDevPath": "./private/sass",
+  "jsDevPath": "./private/js",
+  "imgDevPath": "./private/img",
+  "videoDevPath": "./private/video",
+  "fontDevPath": "./private/fonts",
+  "htmlCliPath": "dist/",
+  "styleCliPath": "./dist/css",
+  "jsCliPath": "./dist/js",
+  "imgCliPath": "./dist/img",
+  "videoCliPath": "./dist/video",
+  "tasksPath": "./private/tasks",
+  "fontCliPath": "./dist/css/fonts",
+  "dataDevPath": "./private/data",
+  "dataCliPath": "./dist/data"
+}
