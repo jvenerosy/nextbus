@@ -4,6 +4,7 @@ delete require.cache[require.resolve("../data/dayOff.json")];
 
 import data from '../data/trad/fr';
 import dayOff from '../data/dayOff';
+import $ from 'jquery';
 
 
 //GLOBAL FUNCTIONS
@@ -77,6 +78,8 @@ let whatIsBestforAll = function() {
     data.hNext = (best12 < best13) ? best12.slice(0, 2) : best13.slice(0, 2);
     data.mNext = (best12 < best13) ? best12.slice(2) : best13.slice(2);
     data.number = (best12 < best13) ? 12 : 13;
+
+    changeTheme(data.number);
 };
 
 let whichNext = function(hour, next) {
@@ -84,6 +87,12 @@ let whichNext = function(hour, next) {
 
     return (result > 1) ? result + ' minutes' : result + " minute";
 };
+
+let changeTheme = function(n) {
+    let color = (n === 12) ? '#E32118' : '#007734';
+
+    $('head').find('meta[name="theme-color"]').attr('content', color);
+}
 
 var app = new Vue({
     el: '#app',
